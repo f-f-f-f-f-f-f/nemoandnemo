@@ -3,9 +3,10 @@ const games = document
     .querySelectorAll("a");
 for (const el of games) {
     const link = el.href;
-    el.removeAttribute("href");
+    el.href = "about:blank"; // To give it styling
     el.removeAttribute("target");
-    el.addEventListener("click", () => {
+    el.addEventListener("click", (e) => {
+        e.preventDefault();
         const win = window.open("about:blank", "_blank");
         if (!win)
             return alert(`An unknown error occured.`);
