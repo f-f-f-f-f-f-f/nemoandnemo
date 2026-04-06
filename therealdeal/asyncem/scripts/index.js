@@ -16,6 +16,7 @@ else {
     player.load({
         url: path,
         allowScriptAccess: true,
+        contentType: "application/x-shockwave-flash",
     });
 }
 export {};
