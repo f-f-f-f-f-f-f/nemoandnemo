@@ -1,2 +1,20 @@
+const games = document
+    .querySelector("#special")
+    .querySelectorAll("a");
+for (const el of games) {
+    const link = el.href;
+    el.removeAttribute("href");
+    el.removeAttribute("target");
+    el.addEventListener("click", () => {
+        const win = window.open("about:blank", "_blank");
+        if (!win)
+            return alert(`An unknown error occured.`);
+        const iframe = document.createElement("iframe");
+        iframe.src = link;
+        iframe.style.width = "99vw";
+        iframe.style.height = "99vh";
+        win.document.body.appendChild(iframe);
+    });
+}
 export {};
 //# sourceMappingURL=index.js.map
