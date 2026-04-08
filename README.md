@@ -2,6 +2,11 @@
 
 Unblocked games.
 
+Access at one of these links:
+https://treeandcarimages.vercel.app
+
+https://gleaming-macaron-415e7d.netlify.app/
+
 Credits:
 
 Many Flash games from the Internet Archive (which owns the Wayback Machine), most notably [this collection](https://archive.org/details/flash-games_20211214).
