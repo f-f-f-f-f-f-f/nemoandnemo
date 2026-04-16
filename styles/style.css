@@ -28,3 +28,14 @@ dialog::backdrop {
 .lfs-warning-dialog {
   font-size: 1.25rem;
 }
+
+#genre-search-container{
+  position: absolute;
+  left: 80vw;
+}
+
+#series-search-container {
+  position: absolute;
+  left: 80vw;
+  top: 40vh;
+}
