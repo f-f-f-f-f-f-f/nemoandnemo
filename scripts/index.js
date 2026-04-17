@@ -3182,11 +3182,9 @@ Please report this to https://github.com/markedjs/marked.`, e) {
   var STATIC_DATA = {
     changelog: {
       version: {
-        string: "1.0.0"
+        string: "1.1.0"
       },
-      updates: [
-        `None... yet!`
-      ].map((str) => `${g(str.replace(/\n/g, "<br>"))}`).join("")
+      updates: [`Added more games`].map((str) => `${g(str.replace(/\n/g, "<br>"))}`).join("")
     },
     genres: {
       all: "All Genres",
@@ -3194,6 +3192,7 @@ Please report this to https://github.com/markedjs/marked.`, e) {
       idle: "Idle/Clicker",
       combat: "Combat",
       platformer: "Platformer",
+      runner: "Runner",
       restaurantManagement: "Resturant Management",
       towerDefense: "Tower Defense",
       racing: "Racing",
@@ -3233,7 +3232,12 @@ Please report this to https://github.com/markedjs/marked.`, e) {
   }
   {
     const modal = document.querySelector("#get-adobe-flash");
-    if (!(navigator.plugins.namedItem("Shockwave Flash") instanceof Plugin)) {
+    if (navigator.plugins.namedItem("Shockwave Flash") && !(navigator.plugins.namedItem("Shockwave Flash") instanceof Plugin)) {
+      const modal2 = document.querySelector(
+        "#ruffle-get-flash"
+      );
+      modal2.showModal();
+    } else if (!navigator.plugins.namedItem("Shockwave Flash")) {
       modal.showModal();
       modal.addEventListener("close", () => {
         const games = document.querySelectorAll("[data-flash]");
@@ -3298,7 +3302,7 @@ Please report this to https://github.com/markedjs/marked.`, e) {
             Array.from(els2).forEach((el) => el.style.display = "revert");
             return;
           }
-          const selector = `[data-series="${key}"]`;
+          const selector = `[data-series*="${key}"]`;
           const els = Array.from(special.querySelectorAll(selector));
           els.forEach((el) => el.style.display = "revert");
           const remaining = Array.from(
