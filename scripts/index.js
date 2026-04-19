@@ -3182,9 +3182,9 @@ Please report this to https://github.com/markedjs/marked.`, e) {
   var STATIC_DATA = {
     changelog: {
       version: {
-        string: "1.1.0"
+        string: "1.2.0"
       },
-      updates: [`Added more games`].map((str) => `${g(str.replace(/\n/g, "<br>"))}`).join("")
+      updates: [`Added the Papa Louie mobile-only games, adapted for the web`].map((str) => `${g(str.replace(/\n/g, "<br>"))}`).join("")
     },
     genres: {
       all: "All Genres",
@@ -3228,35 +3228,6 @@ Please report this to https://github.com/markedjs/marked.`, e) {
     const version = localStorage.getItem("changelogVersion") || STATIC_DATA.changelog.version.string;
     if (import_semver.default.lt(version, STATIC_DATA.changelog.version.string)) {
       showChangelog();
-    }
-  }
-  {
-    const modal = document.querySelector("#get-adobe-flash");
-    if (navigator.plugins.namedItem("Shockwave Flash") && !(navigator.plugins.namedItem("Shockwave Flash") instanceof Plugin)) {
-      const modal2 = document.querySelector(
-        "#ruffle-get-flash"
-      );
-      modal2.showModal();
-    } else if (!navigator.plugins.namedItem("Shockwave Flash")) {
-      modal.showModal();
-      modal.addEventListener("close", () => {
-        const games = document.querySelectorAll("[data-flash]");
-        const disable = (link) => {
-          if (link.tagName !== "A") {
-            const games2 = link.querySelectorAll("a");
-            for (const game of games2) {
-              disable(game);
-            }
-          } else {
-            if (link.dataset.noFlash == null) {
-              link.removeAttribute("href");
-              link.style.textDecoration = "line-through";
-              link.title = "This game has been disabled since you don't have Adobe Flash";
-            }
-          }
-        };
-        games.forEach((game) => disable(game));
-      });
     }
   }
   {
